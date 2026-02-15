@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Miere 100% Naturală — Tradiție de familie de peste 50 de ani</title>
+  <meta name="description" content="Miere 100% naturală, produsă în familie de peste 50 de ani. Livrare rapidă. Comandă online." />
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --card:#121216;
+      --text:#f4f4f5;
+      --muted:#b8b8bf;
+      --accent:#f6c453;
+      --accent2:#ffdd8a;
+      --ok:#34d399;
+      --line:#23232b;
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --max: 1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 70% -10%, rgba(246,196,83,.25), transparent 60%),
+        radial-gradient(800px 500px at 10% 0%, rgba(255,221,138,.18), transparent 55%),
+        linear-gradient(180deg, #070708, var(--bg));
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,11,12,.65);
+      border-bottom:1px solid rgba(35,35,43,.7);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px}
+    .logo{
+      width:36px; height:36px; border-radius:12px;
+      background: conic-gradient(from 180deg, var(--accent), #ffb703, #ffd166, var(--accent));
+      box-shadow: 0 10px 25px rgba(246,196,83,.18);
+    }
+    .links{display:flex; gap:18px; flex-wrap:wrap; align-items:center}
+    .links a{
+      color:var(--muted);
+      font-weight:600;
+      padding:10px 12px;
+      border-radius:12px;
+    }
+    .links a:hover{color:var(--text); background:rgba(255,255,255,.06)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid rgba(246,196,83,.45);
+      background: linear-gradient(180deg, rgba(246,196,83,.18), rgba(246,196,83,.08));
+      color:var(--text);
+      font-weight:800;
+      box-shadow: 0 10px 28px rgba(246,196,83,.10);
+      cursor:pointer;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn:active{transform: translateY(0)}
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(246,196,83,.95), rgba(255,183,3,.85));
+      border-color: rgba(255,183,3,.7);
+      color:#1a1406;
+      box-shadow: 0 16px 40px rgba(246,196,83,.22);
+    }
+
+    .hero{
+      padding:44px 0 16px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:28px;
+      align-items:center;
+    }
+    .badge{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px;
+      border:1px solid rgba(246,196,83,.35);
+      border-radius:999px;
+      background: rgba(246,196,83,.08);
+      color:var(--accent2);
+      font-weight:700;
+      width:fit-content;
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(34px, 4vw, 56px);
+      line-height:1.02;
+      letter-spacing:-.6px;
+    }
+    .sub{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size: 16.5px;
+      line-height:1.55;
+      max-width: 65ch;
+    }
+    .heroActions{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+    .mini{
+      margin-top:14px;
+      display:flex; gap:16px; flex-wrap:wrap;
+      color:var(--muted);
+      font-weight:600;
+    }
+    .mini span{display:inline-flex; gap:8px; align-items:center}
+    .dot{
+      width:10px; height:10px; border-radius:99px;
+      background: var(--ok);
+      box-shadow: 0 0 0 4px rgba(52,211,153,.12);
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+    }
+
+    .story{
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .story::before{
+      content:"";
+      position:absolute; inset:-60px -40px auto auto;
+      width:240px; height:240px;
+      background: radial-gradient(circle at 30% 30%, rgba(246,196,83,.55), transparent 60%);
+      transform: rotate(18deg);
+      filter: blur(2px);
+      pointer-events:none;
+    }
+    .story h3{margin:0 0 8px; font-size:18px}
+    .story p{margin:0; color:var(--muted); line-height:1.6}
+
+    section{padding:26px 0}
+    .sectionTitle{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
+      margin-bottom:14px;
+    }
+    .sectionTitle h2{margin:0; font-size:24px; letter-spacing:-.3px}
+    .sectionTitle p{margin:0; color:var(--muted)}
+
+    .features{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .feat{
+      padding:16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.16);
+    }
+    .feat b{display:block; margin-bottom:6px}
+
+    .store{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    .prod{
+      padding:16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.16);
+      display:flex; flex-direction:column; gap:12px;
+    }
+    .img{
+      height:140px;
+      border-radius:14px;
+      background:
+        radial-gradient(120px 80px at 40% 30%, rgba(255,221,138,.55), transparent 60%),
+        radial-gradient(140px 90px at 70% 65%, rgba(246,196,83,.35), transparent 60%),
+        linear-gradient(180deg, rgba(246,196,83,.08), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .row{display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .price{font-size:20px; font-weight:900; color:var(--accent2)}
+    .muted{color:var(--muted)}
+    .pill{
+      display:inline-flex;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(246,196,83,.35);
+      background: rgba(246,196,83,.08);
+      color: var(--accent2);
+      font-weight:700;
+      font-size:12px;
+      width:fit-content;
+    }
+
+    .qty{
+      display:flex; align-items:center; gap:10px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: 999px;
+      padding:6px;
+      background: rgba(0,0,0,.18);
+      width: fit-content;
+    }
+    .qty button{
+      width:34px; height:34px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight:900;
+      cursor:pointer;
+    }
+    .qty span{min-width:22px; text-align:center; font-weight:800}
+
+    .cartBar{
+      position: sticky;
+      bottom: 14px;
+      margin-top: 14px;
+      padding: 14px;
+      display:flex; justify-content:space-between; align-items:center; gap:12px;
+    }
+    .cartBar .left{display:flex; flex-direction:column; gap:2px}
+    .cartBar .left small{color:var(--muted)}
+    .fine{font-size:12px; color:rgba(184,184,191,.75)}
+
+    .two{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
+      align-items:start;
+    }
+    form{display:grid; gap:10px; padding:16px}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.20);
+      color: var(--text);
+      outline:none;
+    }
+    textarea{min-height:120px; resize:vertical}
+    footer{
+      padding:28px 0 50px;
+      color:var(--muted);
+      border-top:1px solid rgba(35,35,43,.8);
+      margin-top: 24px;
+    }
+    .faq{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    details{
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:14px 16px;
+      background: rgba(0,0,0,.16);
+    }
+    summary{cursor:pointer; font-weight:800}
+    summary::marker{color:var(--accent2)}
+
+    @media (max-width: 920px){
+      .hero{grid-template-columns: 1fr; padding-top: 26px}
+      .features{grid-template-columns: 1fr}
+      .store{grid-template-columns: 1fr}
+      .faq{grid-template-columns: 1fr}
+      .two{grid-template-columns: 1fr}
+      header{position:relative}
+    }
+    @media (max-width: 520px){
+      .links{display:none}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#acasa" aria-label="Acasă">
+      <div class="logo" aria-hidden="true"></div>
+      <div>Miere de Familie</div>
+    </a>
+    <nav class="links" aria-label="Secțiuni">
+      <a href="#poveste">Povestea noastră</a>
+      <a href="#produse">Produse</a>
+      <a href="#calitate">Calitate</a>
+      <a href="#intrebari">Întrebări</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn primary" href="#produse">Comandă</a>
+  </div>
+</header>
+
+<main class="wrap" id="acasa">
+  <section class="hero">
+    <div>
+      <div class="badge">🍯 100% naturală · tradiție de familie</div>
+      <h1>Miere adevărată, făcută cu grijă de peste 50 de ani.</h1>
+      <p class="sub">
+        Suntem o familie de apicultori la a treia generație. De peste 50 de ani îngrijim stupii, urmărim
+        culesurile și punem în borcan miere <b>100% naturală</b>—fără amestecuri, fără siropuri, fără compromisuri.
+      </p>
+      <div class="heroActions">
+        <a class="btn primary" href="#produse">Vezi produsele</a>
+        <a class="btn" href="#contact">Comandă pe WhatsApp</a>
+      </div>
+      <div class="mini">
+        <span><i class="dot"></i> Loturi mici, trasabilitate</span>
+        <span><i class="dot"></i> Ambalare sigură</span>
+        <span><i class="dot"></i> Livrare rapidă</span>
+      </div>
+    </div>
+
+    <aside class="card story" id="poveste" aria-label="Povestea producătorului">
+      <h3>Povestea noastră</h3>
+      <p>
+        Totul a început în anii ’70, când bunicul a pus primii stupi lângă pădurile și livezile din zonă.
+        A transmis mai departe aceeași regulă simplă: <b>albinele pe primul loc</b>. De atunci, am păstrat metoda
+        tradițională: recoltăm doar când mierea este matură, filtrăm ușor (fără „încălziri” agresive)
+        și o punem în borcan așa cum o facem acasă, pentru familie.
+      </p>
+      <p style="margin-top:10px">
+        Azi, după peste 50 de ani, continuăm cu aceeași grijă: miere curată, aromată, de sezon, din culesuri
+        atent alese.
+      </p>
+      <p class="fine" style="margin-top:12px">
+        *Poți personaliza ușor: localitatea, anul de început, numele familiei și pozele.
+      </p>
+    </aside>
+  </section>
+
+  <section id="calitate">
+    <div class="sectionTitle">
+      <h2>Ce înseamnă pentru noi „100% naturală”</h2>
+      <p>3 lucruri clare, fără marketing.</p>
+    </div>
+    <div class="features">
+      <div class="feat card">
+        <b>Fără amestecuri</b>
+        <div class="muted">Nu combinăm loturi cu siropuri sau „miere” de import. Doar miere.</div>
+      </div>
+      <div class="feat card">
+        <b>Recoltare la maturitate</b>
+        <div class="muted">Culegem când mierea e căpăcită. Rezultatul: gust și textură corecte.</div>
+      </div>
+      <div class="feat card">
+        <b>Procesare blândă</b>
+        <div class="muted">Filtrare ușoară și ambalare atentă. Fără tratamente agresive.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="produse">
+    <div class="sectionTitle">
+      <h2>Produse</h2>
+      <p>Adaugă în coș și trimite comanda.</p>
+    </div>
+
+    <div class="store">
+      <article class="prod card" data-sku="salcam" data-name="Miere de Salcâm 500g" data-price="9.90">
+        <div class="img" aria-hidden="true"></div>
+        <div class="row">
+          <div>
+            <div class="pill">Clasică</div>
+            <h3 style="margin:8px 0 0">Miere de Salcâm 500g</h3>
+            <div class="muted">Gust fin, aromă delicată.</div>
+          </div>
+          <div class="price">9,90€</div>
+        </div>
+        <div class="row">
+          <div class="qty" aria-label="Cantitate">
+            <button type="button" data-act="dec" aria-label="Scade">−</button>
+            <span data-qty>0</span>
+            <button type="button" data-act="inc" aria-label="Crește">+</button>
+          </div>
+          <button class="btn" type="button" data-add>Adaugă</button>
+        </div>
+      </article>
+
+      <article class="prod card" data-sku="poliflora" data-name="Miere Polifloră 500g" data-price="8.90">
+        <div class="img" aria-hidden="true"></div>
+        <div class="row">
+          <div>
+            <div class="pill">Aromată</div>
+            <h3 style="margin:8px 0 0">Miere Polifloră 500g</h3>
+            <div class="muted">Bogată, de sezon, din flori diverse.</div>
+          </div>
+          <div class="price">8,90€</div>
+        </div>
+        <div class="row">
+          <div class="qty" aria-label="Cantitate">
+            <button type="button" data-act="dec" aria-label="Scade">−</button>
+            <span data-qty>0</span>
+            <button type="button" data-act="inc" aria-label="Crește">+</button>
+          </div>
+          <button class="btn" type="button" data-add>Adaugă</button>
+        </div>
+      </article>
+
+      <article class="prod card" data-sku="tei" data-name="Miere de Tei 500g" data-price="9.40">
+        <div class="img" aria-hidden="true"></div>
+        <div class="row">
+          <div>
+            <div class="pill">Intensă</div>
+            <h3 style="margin:8px 0 0">Miere de Tei 500g</h3>
+            <div class="muted">Aromă puternică, perfectă pentru ceai.</div>
+          </div>
+          <div class="price">9,40€</div>
+        </div>
+        <div class="row">
+          <div class="qty" aria-label="Cantitate">
+            <button type="button" data-act="dec" aria-label="Scade">−</button>
+            <span data-qty>0</span>
+            <button type="button" data-act="inc" aria-label="Crește">+</button>
+          </div>
+          <button class="btn" type="button" data-add>Adaugă</button>
+        </div>
+      </article>
+
+      <article class="prod card" data-sku="pachet" data-name="Pachet Degustare (3x500g)" data-price="24.90">
+        <div class="img" aria-hidden="true"></div>
+        <div class="row">
+          <div>
+            <div class="pill">Cel mai vândut</div>
+            <h3 style="margin:8px 0 0">Pachet Degustare (3×500g)</h3>
+            <div class="muted">Salcâm · Polifloră · Tei</div>
+          </div>
+          <div class="price">24,90€</div>
+        </div>
+        <div class="row">
+          <div class="qty" aria-label="Cantitate">
+            <button type="button" data-act="dec" aria-label="Scade">−</button>
+            <span data-qty>0</span>
+            <button type="button" data-act="inc" aria-label="Crește">+</button>
+          </div>
+          <button class="btn" type="button" data-add>Adaugă</button>
+        </div>
+      </article>
+    </div>
+
+    <div class="card cartBar" aria-label="Coș">
+      <div class="left">
+        <b>Total: <span id="total">0,00€</span></b>
+        <small id="items">0 produse</small>
+      </div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end">
+        <button class="btn" id="copy" type="button">Copiază comanda</button>
+        <a class="btn primary" id="whats" href="#contact">Trimite pe WhatsApp</a>
+      </div>
+    </div>
+    <div class="fine">Notă: acest demo trimite comanda prin mesaj (WhatsApp/email). Pentru plată online, ai nevoie de Stripe/PayPal.</div>
+  </section>
+
+  <section id="opinions">
+    <div class="sectionTitle" id="opiniones">
+      <h2>Ce spun clienții</h2>
+      <p>Exemple (înlocuiește cu recenzii reale).</p>
+    </div>
+    <div class="features">
+      <div class="feat card">
+        <b>„Gust curat, exact ca la țară.”</b>
+        <div class="muted">— Andreea, București</div>
+      </div>
+      <div class="feat card">
+        <b>„Ambalare excelentă, a ajuns rapid.”</b>
+        <div class="muted">— Mihai, Cluj</div>
+      </div>
+      <div class="feat card">
+        <b>„Pachetul de degustare e perfect cadou.”</b>
+        <div class="muted">— Ioana, Timișoara</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="intrebari">
+    <div class="sectionTitle">
+      <h2>Întrebări frecvente</h2>
+      <p>Răspunsuri scurte.</p>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Mierea cristalizează. E normal?</summary>
+        <div class="muted" style="margin-top:8px; line-height:1.6">
+          Da. Cristalizarea e un proces natural și depinde de sortiment și temperatură.
+        </div>
+      </details>
+      <details>
+        <summary>De unde provine mierea?</summary>
+        <div class="muted" style="margin-top:8px; line-height:1.6">
+          Din culesuri sezoniere, în loturi mici. Poți adăuga aici zona exactă și harta.
+        </div>
+      </details>
+      <details>
+        <summary>Ce metode folosiți la procesare?</summary>
+        <div class="muted" style="margin-top:8px; line-height:1.6">
+          Filtrare blândă și ambalare atentă, fără tratamente agresive.
+        </div>
+      </details>
+      <details>
+        <summary>Cum comand?</summary>
+        <div class="muted" style="margin-top:8px; line-height:1.6">
+          Adaugi cantitățile, copiezi comanda și o trimiți pe WhatsApp sau prin formular.
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="sectionTitle">
+      <h2>Contact & comenzi</h2>
+      <p>Completează datele tale și îți confirmăm rapid.</p>
+    </div>
+
+    <div class="two">
+      <div class="card" style="padding:16px">
+        <b>Date de contact (editează aici)</b>
+        <div class="muted" style="margin-top:8px; line-height:1.7">
+          Telefon/WhatsApp: <span id="phoneShow">+40 7xx xxx xxx</span><br />
+          Email: <span id="emailShow">comenzi@mierefamilie.ro</span><br />
+          Program: L–V 09:00–18:00
+        </div>
+        <div class="fine" style="margin-top:10px">
+          Setează numărul tău real în cod: <code>PHONE_E164</code> (format internațional, fără spații).
+        </div>
+      </div>
+
+      <div class="card">
+        <form id="form">
+          <input id="nume" placeholder="Nume" required />
+          <input id="telefon" placeholder="Telefon" required />
+          <input id="adresa" placeholder="Adresă livrare (opțional)" />
+          <textarea id="mesaj" placeholder="Mesaj / detalii comandă"></textarea>
+          <button class="btn primary" type="submit">Trimite cererea (email)</button>
+          <div class="fine">
+            Formularul deschide clientul tău de email cu mesajul completat.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="padding:0">
+      <div class="two">
+        <div>
+          <b>Miere de Familie</b>
+          <div class="muted" style="margin-top:8px; line-height:1.7">
+            Miere 100% naturală, tradiție de familie de peste 50 de ani.
+          </div>
+        </div>
+        <div class="muted">
+          © <span id="year"></span> — Toate drepturile rezervate.<br />
+          <span class="fine">Politica de confidențialitate / Termeni (adaugi linkuri).</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script>
+  // === CONFIG (editează aici) ===
+  const PHONE_E164 = "+40700000000"; // format E.164 (ex: +40...)
+  const EMAIL_TO   = "comenzi@mierefamilie.ro";
+
+  // UI
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Cart
+  const fmt = (n) => n.toFixed(2).replace(".", ",") + "€";
+  const cart = new Map(); // sku -> {name, price, qty}
+
+  function updateBar(){
+    let total = 0, items = 0;
+    for (const v of cart.values()){
+      total += v.price * v.qty;
+      items += v.qty;
+    }
+    document.getElementById("total").textContent = fmt(total);
+    document.getElementById("items").textContent = `${items} produse`;
+  }
+
+  function buildOrderText(){
+    let lines = ["Comandă Miere de Familie:"];
+    let total = 0;
+    for (const v of cart.values()){
+      if (v.qty > 0){
+        lines.push(`- ${v.name} x${v.qty} = ${fmt(v.price * v.qty)}`);
+        total += v.price * v.qty;
+      }
+    }
+    if (lines.length === 1) lines.push("- (niciun produs selectat)");
+    lines.push(`Total: ${fmt(total)}`);
+    return lines.join("\n");
+  }
+
+  document.querySelectorAll("[data-add]").forEach(btn=>{
+    btn.addEventListener("click", (e)=>{
+      const card = e.target.closest("[data-sku]");
+      const sku = card.dataset.sku;
+      const name = card.dataset.name;
+      const price = Number(card.dataset.price);
+      const qtyEl = card.querySelector("[data-qty]");
+      const qty = Number(qtyEl.textContent) || 0;
+
+      if (!cart.has(sku)) cart.set(sku, {name, price, qty:0});
+      cart.get(sku).qty = qty;
+
+      updateBar();
+    });
+  });
+
+  document.querySelectorAll("[data-act]").forEach(b=>{
+    b.addEventListener("click", (e)=>{
+      const card = e.target.closest("[data-sku]");
+      const qtyEl = card.querySelector("[data-qty]");
+      let q = Number(qtyEl.textContent) || 0;
+      if (e.target.dataset.act === "inc") q++;
+      if (e.target.dataset.act === "dec") q = Math.max(0, q-1);
+      qtyEl.textContent = String(q);
+
+      // keep cart in sync (live)
+      const sku = card.dataset.sku;
+      const name = card.dataset.name;
+      const price = Number(card.dataset.price);
+      if (!cart.has(sku)) cart.set(sku, {name, price, qty:0});
+      cart.get(sku).qty = q;
+      updateBar();
+    });
+  });
+
+  document.getElementById("copy").addEventListener("click", async ()=>{
+    const text = buildOrderText();
+    try{
+      await navigator.clipboard.writeText(text);
+      alert("Comanda a fost copiată.");
+    }catch{
+      prompt("Copiază manual:", text);
+    }
+  });
+
+  const whats = document.getElementById("whats");
+  whats.addEventListener("click", ()=>{
+    const text = encodeURIComponent(buildOrderText());
+    whats.href = `https://wa.me/${PHONE_E164.replace(/\+/g,"")}?text=${text}`;
+  });
+
+  // Email form
+  document.getElementById("form").addEventListener("submit", (e)=>{
+    e.preventDefault();
+    const nume = document.getElementById("nume").value.trim();
+    const telefon = document.getElementById("telefon").value.trim();
+    const adresa = document.getElementById("adresa").value.trim();
+    const mesaj = document.getElementById("mesaj").value.trim();
+
+    const order = buildOrderText();
+    const body =
+`Nume: ${nume}
+Telefon: ${telefon}
+Adresă: ${adresa || "-"}
+-----------------------
+${order}
+-----------------------
+Mesaj:
+${mesaj || "-"}`;
+
+    const subject = encodeURIComponent("Comandă miere — Miere de Familie");
+    const mailBody = encodeURIComponent(body);
+    window.location.href = `mailto:${EMAIL_TO}?subject=${subject}&body=${mailBody}`;
+  });
+
+  // Display placeholders
+  document.getElementById("phoneShow").textContent = PHONE_E164;
+  document.getElementById("emailShow").textContent = EMAIL_TO;
+
+  updateBar();
+</script>
+</body>
+</html>
